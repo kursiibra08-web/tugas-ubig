@@ -1,0 +1,480 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --page-bg: radial-gradient(circle at 50% 0%, #171717 0%, #050505 35%, #000 72%);
+    --page-bg-color: #000;
+    --card-bg: linear-gradient(145deg, rgba(255,255,255,.045), transparent 28%), #070707;
+    --card-line: rgba(255,255,255,.28);
+    --card-shadow: 0 30px 90px rgba(0,0,0,.85), inset 0 1px 0 rgba(255,255,255,.12);
+    --bar-bg: linear-gradient(180deg, #111, #070707);
+    --bar-line: rgba(255,255,255,.14);
+    --bar-dots: #888;
+    --panel-bg: radial-gradient(circle at 50% 15%, rgba(255,255,255,.07), transparent 40%), #080808;
+    --panel-line: rgba(255,255,255,.24);
+    --text: #ffffff;
+    --text-body: #dddddd;
+    --text-dim: #888888;
+    --inset-bg: linear-gradient(145deg, rgba(255,255,255,.025), transparent), #0b0b0b;
+    --inset-line: rgba(255,255,255,.16);
+    --divider: rgba(255,255,255,.18);
+    --badge-bg: #0c0c0c;
+    --badge-line: rgba(255,255,255,.22);
+    --btn-bg: #ffffff;
+    --btn-text: #000000;
+    --btn-hover: #dcdcdc;
+    --avatar-bg: #050505;
+    --avatar-line: rgba(255,255,255,.55);
+    --float-bg: rgba(10,10,10,.9);
+    --float-line: rgba(255,255,255,.3);
+    --overlay: rgba(0,0,0,.78);
+    --modal-bg: linear-gradient(145deg, rgba(255,255,255,.04), transparent), #0a0a0a;
+    --link-hover: #aaaaaa;
+
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+}
+
+body.light-mode {
+    --page-bg: radial-gradient(circle at 50% 0%, #ffffff 0%, #f1f1f1 40%, #e4e4e4 100%);
+    --page-bg-color: #efefef;
+    --card-bg: linear-gradient(145deg, rgba(0,0,0,.02), transparent 28%), #ffffff;
+    --card-line: rgba(0,0,0,.18);
+    --card-shadow: 0 30px 80px rgba(0,0,0,.15), inset 0 1px 0 rgba(255,255,255,.9);
+    --bar-bg: linear-gradient(180deg, #f6f6f6, #ececec);
+    --bar-line: rgba(0,0,0,.1);
+    --bar-dots: #777;
+    --panel-bg: radial-gradient(circle at 50% 15%, rgba(0,0,0,.04), transparent 40%), #f7f7f7;
+    --panel-line: rgba(0,0,0,.14);
+    --text: #0a0a0a;
+    --text-body: #2a2a2a;
+    --text-dim: #666666;
+    --inset-bg: #f3f3f3;
+    --inset-line: rgba(0,0,0,.12);
+    --divider: rgba(0,0,0,.15);
+    --badge-bg: #ffffff;
+    --badge-line: rgba(0,0,0,.2);
+    --btn-bg: #0a0a0a;
+    --btn-text: #ffffff;
+    --btn-hover: #333333;
+    --avatar-bg: #e6e6e6;
+    --avatar-line: rgba(0,0,0,.4);
+    --float-bg: rgba(255,255,255,.92);
+    --float-line: rgba(0,0,0,.25);
+    --overlay: rgba(0,0,0,.45);
+    --modal-bg: #ffffff;
+    --link-hover: #555555;
+}
+
+html {
+    background: var(--page-bg-color);
+}
+
+body {
+    font-family: var(--font);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    background: var(--page-bg);
+    background-color: var(--page-bg-color);
+    letter-spacing: -0.01em;
+    transition: background-color .3s ease, color .3s ease;
+}
+
+.page-wrapper {
+    width: 100%;
+    max-width: 1040px;
+}
+
+
+
+.profile-card {
+    position: relative;
+    overflow: hidden;
+    background: var(--card-bg);
+    border: 1px solid var(--card-line);
+    border-radius: 30px;
+    padding: 66px 18px 18px;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.profile-card::before {
+    content: 'MY_PROFILE.EXE';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 48px;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    background: var(--bar-bg);
+    border-bottom: 1px solid var(--bar-line);
+    color: var(--text);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .7px;
+}
+
+.profile-card::after {
+    content: '•••';
+    position: absolute;
+    top: 0;
+    right: 20px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    color: var(--bar-dots);
+    font-size: 12px;
+    letter-spacing: 4px;
+    pointer-events: none;
+}
+
+
+
+.card-aside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 26px 18px;
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-line);
+    border-radius: 24px;
+}
+
+.avatar-box {
+    width: 116px;
+    height: 116px;
+    flex-shrink: 0;
+    overflow: hidden;
+    background: var(--avatar-bg);
+    border: 1px solid var(--avatar-line);
+    border-radius: 50%;
+    margin-bottom: 18px;
+    box-shadow: 0 14px 45px rgba(0,0,0,.35);
+    transition: transform .25s ease;
+}
+
+.avatar-box:hover {
+    transform: translateY(-3px);
+}
+
+.avatar-box > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.student-name {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -.03em;
+    line-height: 1.25;
+}
+
+.student-role {
+    display: inline-block;
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    font-size: 12px;
+    font-weight: 600;
+    margin: 10px 0 2px;
+    padding: 5px 12px;
+    border-radius: 999px;
+}
+
+.student-school {
+    color: var(--text-dim);
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+
+
+.btn-contact {
+    margin-top: 18px;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+    transition: transform .2s ease, background .2s ease;
+}
+
+.btn-contact:hover {
+    background: var(--btn-hover);
+    transform: translateY(-1px);
+}
+
+.btn-contact:active {
+    transform: scale(.98);
+}
+
+.btn-contact:focus-visible,
+.btn-tutup:focus-visible,
+.btn-tema:focus-visible,
+.modal-email:focus-visible {
+    outline: 2px solid var(--text);
+    outline-offset: 3px;
+}
+
+
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    min-width: 0;
+}
+
+.section-heading {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    padding-bottom: 9px;
+    border-bottom: 1px solid var(--divider);
+    text-transform: uppercase;
+}
+
+.bio-text {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-body);
+    background: var(--inset-bg);
+    border: 1px solid var(--inset-line);
+    border-radius: 18px;
+    padding: 16px 17px;
+}
+
+.skill-matrix {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-badge {
+    background: var(--badge-bg);
+    border: 1px solid var(--badge-line);
+    color: var(--text-body);
+    padding: 7px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+    transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.skill-badge:hover {
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    border-color: var(--btn-bg);
+    transform: translateY(-1px);
+}
+
+
+
+.btn-tema {
+    position: fixed;
+    bottom: 18px;
+    right: 18px;
+    z-index: 10;
+    background: var(--float-bg);
+    color: var(--text);
+    border: 1px solid var(--float-line);
+    border-radius: 999px;
+    padding: 9px 14px;
+    font-family: var(--font);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .5px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    cursor: pointer;
+    backdrop-filter: blur(12px);
+    transition: transform .2s ease, background .2s ease, color .2s ease;
+}
+
+.btn-tema:hover {
+    background: var(--btn-bg);
+    color: var(--btn-text);
+}
+
+.btn-tema:active {
+    transform: scale(.96);
+}
+
+
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--overlay);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    z-index: 1000;
+    backdrop-filter: blur(12px);
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.modal-box {
+    width: 100%;
+    max-width: 420px;
+    padding: 26px;
+    text-align: center;
+    background: var(--modal-bg);
+    color: var(--text);
+    border: 1px solid var(--card-line);
+    border-radius: 24px;
+    box-shadow: 0 35px 100px rgba(0,0,0,.5);
+}
+
+.modal-box h2 {
+    font-size: 18px;
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+.modal-email {
+    display: block;
+    margin-top: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    word-break: break-all;
+}
+
+.modal-email:hover {
+    color: var(--link-hover);
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-tutup {
+    padding: 10px 20px;
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    border: 0;
+    border-radius: 999px;
+    font-family: var(--font);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform .2s ease, background .2s ease;
+}
+
+.btn-tutup:hover {
+    background: var(--btn-hover);
+    transform: translateY(-1px);
+}
+
+
+
+@media (min-width: 768px) {
+    body {
+        padding: 40px;
+    }
+
+    .profile-card {
+        flex-direction: row;
+        align-items: stretch;
+        padding: 66px 22px 22px;
+        border-radius: 34px;
+    }
+
+    .profile-card::before {
+        height: 50px;
+        padding-left: 22px;
+    }
+
+    .profile-card::after {
+        height: 50px;
+        right: 22px;
+    }
+
+    .card-aside {
+        width: 280px;
+        flex-shrink: 0;
+        justify-content: center;
+        border-radius: 26px;
+    }
+
+    .avatar-box {
+        width: 132px;
+        height: 132px;
+    }
+
+    .btn-contact {
+        margin-top: 22px;
+    }
+
+    .card-content {
+        flex: 1;
+        justify-content: center;
+        padding: 4px 6px;
+    }
+
+    .bio-text {
+        min-height: 120px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+
+
+@media (max-width: 520px) {
+    body {
+        padding: 12px;
+        padding-bottom: 72px; 
+    }
+
+    .profile-card {
+        padding: 60px 12px 12px;
+        border-radius: 24px;
+    }
+
+    .card-aside {
+        padding: 22px 14px;
+        border-radius: 20px;
+    }
+
+    .bio-text {
+        font-size: 14px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+}

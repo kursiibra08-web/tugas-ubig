@@ -9,9 +9,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+
 </head>
 
 <body>
+    <nav class="site-navigation" aria-label="Navigasi utama">
+        <a class="nav-link" href="index.html" aria-current="page">Profil</a>
+        <a class="nav-link" href="proyek.html">Proyek</a>
+        <a class="nav-link" href="kontak.html">Kontak</a>
+        <button id="btnToggleTema" class="btn-tema" type="button">Mode Gelap</button>
+    </nav>
     <main class="page-wrapper">
         <article class="profile-card">
 
@@ -50,8 +58,6 @@
             </section>
         </article>
     </main>
-
-    <button type="button" id="btnToggleTema" class="btn-tema">☀ Mode Terang</button>
 
     <div id="modalKontak" class="modal-overlay" aria-hidden="true">
         <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="judulModal">

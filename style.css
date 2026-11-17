@@ -78,9 +78,6 @@ body {
     font-family: var(--font);
     color: var(--text);
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 24px;
     background: var(--page-bg);
     background-color: var(--page-bg-color);
@@ -88,9 +85,43 @@ body {
     transition: background-color .3s ease, color .3s ease;
 }
 
+.site-navigation {
+    width: min(100%, 1040px);
+    margin: 0 auto 18px;
+    padding: 12px 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    background: rgba(10, 10, 10, 0.62);
+    border: 1px solid var(--card-line);
+    border-radius: 999px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+}
+
+.nav-link {
+    color: var(--text-body);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 999px;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+
+.nav-link:hover,
+.nav-link[aria-current="page"] {
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    transform: translateY(-1px);
+}
+
 .page-wrapper {
     width: 100%;
     max-width: 1040px;
+    margin: 0 auto;
 }
 
 
@@ -291,10 +322,9 @@ body {
 
 
 
+.site-navigation .btn-tema,
 .btn-tema {
-    position: fixed;
-    bottom: 18px;
-    right: 18px;
+    position: static;
     z-index: 10;
     background: var(--float-bg);
     color: var(--text);
@@ -311,6 +341,10 @@ body {
     transition: transform .2s ease, background .2s ease, color .2s ease;
 }
 
+.site-navigation .btn-tema {
+    margin-left: 8px;
+}
+
 .btn-tema:hover {
     background: var(--btn-bg);
     color: var(--btn-text);
@@ -320,7 +354,186 @@ body {
     transform: scale(.96);
 }
 
+.projects-wrapper {
+    display: flex;
+    justify-content: center;
+}
 
+.projects-card {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    background: var(--card-bg);
+    border: 1px solid var(--card-line);
+    border-radius: 30px;
+    padding: 66px 18px 18px;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.projects-card::before {
+    content: 'MY_PROJECTS.EXE';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 48px;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    background: var(--bar-bg);
+    border-bottom: 1px solid var(--bar-line);
+    color: var(--text);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .7px;
+}
+
+.projects-card::after {
+    content: '•••';
+    position: absolute;
+    top: 0;
+    right: 20px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    color: var(--bar-dots);
+    font-size: 12px;
+    letter-spacing: 4px;
+    pointer-events: none;
+}
+
+.projects-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 18px 10px 6px;
+}
+
+.filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.tombol-filter {
+    background: var(--badge-bg);
+    border: 1px solid var(--badge-line);
+    color: var(--text-body);
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-family: var(--font);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.tombol-filter.aktif,
+.tombol-filter:hover {
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    border-color: var(--btn-bg);
+    transform: translateY(-1px);
+}
+
+.project-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.project-card {
+    background: var(--inset-bg);
+    border: 1px solid var(--inset-line);
+    border-radius: 22px;
+    padding: 18px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.project-card h3 {
+    margin: 0;
+    font-size: 18px;
+    color: var(--text);
+}
+
+.project-card p {
+    margin: 0;
+    color: var(--text-body);
+    line-height: 1.6;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.project-tags span {
+    display: inline-block;
+    background: var(--badge-bg);
+    border: 1px solid var(--badge-line);
+    color: var(--text-body);
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 8px 0 4px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label {
+    color: var(--text-body);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.form-input {
+    width: 100%;
+    background: var(--inset-bg);
+    border: 1px solid var(--inset-line);
+    border-radius: 16px;
+    color: var(--text);
+    padding: 13px 14px;
+    font: inherit;
+    resize: vertical;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.form-input::placeholder {
+    color: var(--text-dim);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--btn-bg);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.08);
+}
+
+.keterangan {
+    color: var(--text-dim);
+    font-size: 12px;
+    text-align: right;
+}
 
 .modal-overlay {
     position: fixed;
@@ -404,19 +617,20 @@ body {
         padding: 40px;
     }
 
-    .profile-card {
-        flex-direction: row;
-        align-items: stretch;
+    .profile-card,
+    .projects-card {
         padding: 66px 22px 22px;
         border-radius: 34px;
     }
 
-    .profile-card::before {
+    .profile-card::before,
+    .projects-card::before {
         height: 50px;
         padding-left: 22px;
     }
 
-    .profile-card::after {
+    .profile-card::after,
+    .projects-card::after {
         height: 50px;
         right: 22px;
     }
@@ -448,6 +662,15 @@ body {
         display: flex;
         align-items: center;
     }
+
+    .project-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .contact-form {
+        max-width: 680px;
+        margin: 0 auto;
+    }
 }
 
 
@@ -458,7 +681,8 @@ body {
         padding-bottom: 72px; 
     }
 
-    .profile-card {
+    .profile-card,
+    .projects-card {
         padding: 60px 12px 12px;
         border-radius: 24px;
     }

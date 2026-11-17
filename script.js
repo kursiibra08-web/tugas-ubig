@@ -1,28 +1,4 @@
 
-const btnTema = document.querySelector('#btnToggleTema');
-const bodyHalaman = document.body;
-
-function terapkanTema(terang) {
-  bodyHalaman.classList.toggle('light-mode', terang);
-  btnTema.textContent = terang ? '🌙 Mode Gelap' : '☀ Mode Terang';
-}
-
-
-let temaTersimpan = null;
-try {
-  temaTersimpan = localStorage.getItem('tema');
-} catch (err) {}
-terapkanTema(temaTersimpan === 'terang');
-
-btnTema.addEventListener('click', function () {
-  const terang = !bodyHalaman.classList.contains('light-mode');
-  terapkanTema(terang);
-  try {
-    localStorage.setItem('tema', terang ? 'terang' : 'gelap');
-  } catch (err) {}
-});
-
-
 const btnBukaModal = document.querySelector('#btnKontak');
 const elemenModal = document.querySelector('#modalKontak');
 const btnTutupModal = document.querySelector('#btnTutupModal');

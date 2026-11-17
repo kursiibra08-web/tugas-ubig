@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - Rafadhil Putra Pratama</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <nav class="site-navigation" aria-label="Navigasi utama">
+        <a class="nav-link" href="index.html">Profil</a>
+        <a class="nav-link" href="proyek.html">Proyek</a>
+        <a class="nav-link" href="kontak.html" aria-current="page">Kontak</a>
+        <button id="btnToggleTema" class="btn-tema" type="button">Mode Gelap</button>
+    </nav>
+
+    <main class="page-wrapper projects-wrapper">
+        <section class="projects-card">
+            <header class="projects-header">
+                <p class="student-role">HUBUNGI SAYA</p>
+                <h1 class="student-name">Kirim Pesan</h1>
+                <p class="bio-text">Silakan isi formulir di bawah ini untuk mengirimkan pesan, saran, atau pertanyaan.</p>
+            </header>
+
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="nama" class="form-label">Nama Lengkap</label>
+                    <input type="text" id="nama" name="nama" class="form-input" placeholder="Masukkan nama Anda" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="form-label">Alamat Email</label>
+                    <input type="email" id="email" name="email" class="form-input" placeholder="nama@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="pesan" class="form-label">Pesan</label>
+                    <textarea id="pesan" name="pesan" rows="5" maxlength="300" class="form-input" placeholder="Tulis pesanmu di sini..." required></textarea>
+                    <span id="hitung-karakter" class="keterangan">0/300 karakter</span>
+                </div>
+
+                <button type="submit" class="btn-contact">Kirim Pesan</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

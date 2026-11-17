@@ -1,0 +1,39 @@
+<!DOCTYPE html> 
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyek - Rafadhil Putra Pratama</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <nav class="site-navigation" aria-label="Navigasi utama">
+        <a class="nav-link" href="index.html">Profil</a>
+        <a class="nav-link" href="proyek.html" aria-current="page">Proyek</a>
+        <a class="nav-link" href="kontak.html">Kontak</a>
+        <button id="btnToggleTema" class="btn-tema" type="button">Mode Gelap</button>
+    </nav>
+
+    <main class="page-wrapper projects-wrapper">
+        <section class="projects-card">
+            <header class="projects-header">
+                <p class="student-role">PORTOFOLIO</p>
+                <h1 class="student-name">Proyek Saya</h1>
+                <p class="bio-text">Karya yang saya buat sambil belajar pengembangan web.</p>
+            </header>
+
+            <div class="filter" style="margin-top: 20px;">
+                <button type="button" class="tombol-filter aktif" id="filter-semua">Semua</button>
+                <button type="button" class="tombol-filter" id="filter-html">HTML</button>
+                <button type="button" class="tombol-filter" id="filter-css">CSS</button>
+                <button type="button" class="tombol-filter" id="filter-javascript">JavaScript</button>
+            </div>
+
+            <p id="jumlah-proyek" class="bio-text" style="margin-top: 10px; font-weight: 600;"></p>
+
+            <div class="project-list" id="daftar-proyek"></div>
+        </section>
+    </main>
+</body>
+</html>
